@@ -1,146 +1,347 @@
-/* Root Variables */
 :root {
-    --primary-color: #1abc9c;
-    --secondary-color: #16a085;
-    --bg-color: #f4f4f4;
-    --text-color: #2c3e50;
-    --highlight-color: #ff5252;
+
+  --primary-color: #1abc9c;
+
+  --secondary-color: #16a085;
+
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
-    user-select: none;
+
+  /* Below is the standard CSS code one should add to get rid of default margins and padding which most of tge HTML elements have */
+
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+  font-family: "Roboto", sans-serif;
+
+  user-select: none;
+
 }
 
 body {
-    background: var(--bg-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+
+  position: relative;
+
+  min-height: 100vh;
+
+  text-align: center;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  flex-direction: column;
+
+  align-items: stretch;
+
 }
 
-/* Title */
+
+
+/* Title CSS */
+
 .title {
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    text-align: center;
-    font-size: 1.5em;
-    padding: 0.8em;
-    color: #fff;
-    cursor: pointer;
-    width: 100%;
+
+  background-color: var(--primary-color);
+
+  text-align: center;
+
+  font-size: 1.2em;
+
+  padding-block: 0.5em;
+
+  color: #fff;
+
+  cursor: pointer;
+
 }
 
-/* Navbar */
+
+
+/* Navbar CSS */
+
 .navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-    padding: 1em;
-    background-color: var(--secondary-color);
-    width: 100%;
-    flex-wrap: wrap;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 0.8em;
+
+  font-size: 16px;
+
+  min-height: 70px;
+
+  padding-block: 0.6em;
+
+  background-color: var(--secondary-color);
+
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+
 }
 
-.navbar a, select {
-    all: unset;
-    cursor: pointer;
-    background: var(--primary-color);
-    color: #fff;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 8px;
-    transition: 0.3s;
-    text-align: center;
+.navbar a {
+
+  all: unset;
+
+  cursor: pointer;
+
+  color: #fff;
+
+  font-weight: bold;
+
+  padding: 8px 10px;
+
+  border-radius: 6px;
+
+  transition: 0.3s;
+
+  background-color: #1abc9c;
+
 }
 
-.navbar a:hover, select:hover {
-    background: #0e7a63;
+.navbar a:hover {
+
+  background-color: transparent;
+
 }
 
-select {
-    border: none;
-    outline: none;
-    cursor: pointer;
+.navbar #menu {
+
+  width: fit-content;
+
+  outline: none;
+
+  border: none;
+
+  border-radius: 4px;
+
+  padding: 6px 8px;
+
+  background-color: #1abc9c;
+
+  color: white;
+
 }
 
-/* Sorting Visualizer */
+.navbar > .icon {
+
+  display: none;
+
+}
+
+#menu,
+
+#random,
+
+#start {
+
+  cursor: pointer;
+
+}
+
+
+
+/* Center css */
+
 .center {
-    background: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    margin-top: 1.5rem;
-    width: 90%;
-    max-width: 600px;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+
+  margin: 0 auto;
+
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; /* Added shadow to make page border free */
+
+  height: 420px;
+
+  width: 410px;
+
+  max-height: 731px;
+
 }
 
-/* Sorting Bars */
 .array {
-    display: flex;
-    align-items: flex-end;
-    width: 100%;
-    height: 100%;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  min-height: 100%;
+
+  height: 100%;
+
+  padding: 1rem;
+
+  flex-direction: row;
+
 }
 
 .cell {
-    flex: 1;
-    background: #d6d6d6;
-    margin: 2px;
-    transition: all 0.4s ease-in-out;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  flex: 0.5;
+
+  width: 0.000001%;
+
+  margin: 1px;
+
+  background-color: #d6d6d6;
+
+  resize: horizontal;
+
+  position: relative;
+
+  transition: all 0.4s ease-in;
+
 }
 
 .cell.done {
-    background: #9cec5b;
+
+  background-color: #9cec5b;
+
+  border-color: #9cec5b;
+
+  color: white;
+
+  transition: all 0.4s ease-out;
+
 }
 
 .cell.visited {
-    background: #6184d8;
+
+  border-color: #6184d8;
+
+  background-color: #6184d8;
+
+  color: white;
+
+  transition: 0.5s;
+
 }
 
 .cell.current {
-    background: #50c5b7;
+
+  border-color: #50c5b7;
+
+  background-color: #50c5b7;
+
+  color: white;
+
+  transition: all 0.4s ease-out;
+
 }
 
 .cell.min {
-    background: #ff1493;
+
+  background-color: #ff1493;
+
+  border-color: #ff1493;
+
+  color: white;
+
+  transition: all 0.4s ease-out;
+
 }
 
-/* Footer */
+
+
+/* Footer CSS */
+
+.fa.fa-heart {
+
+  color: #eb2c13;
+
+}
+
 footer {
-    text-align: center;
-    font-size: 16px;
-    color: var(--text-color);
-    padding: 1.5em;
+
+  text-align: center;
+
+  font-size: 18px;
+
+  color: #2c3e50;
+
+  padding: 1.6em;
+
 }
 
-footer .fa-heart {
-    color: var(--highlight-color);
+.footer > p:nth-child(1) {
+
+  margin-bottom: 0.6em;
+
 }
 
-/* Responsive Design */
+.link {
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  color: #ff5252;
+
+  font-size: 20px;
+
+}
+
+
+
 @media screen and (max-width: 600px) {
-    .navbar {
-        gap: 0.5em;
-    }
 
-    .title {
-        font-size: 18px;
-    }
+  .navbar {
 
-    select, .navbar a {
-        font-size: 14px;
-        padding: 8px 12px;
-    }
+    gap: 0.4em;
 
-    .center {
-        width: 95%;
-    }
+  }
+
+  .title {
+
+    font-size: 17px;
+
+  }
+
+  .navbar *,
+
+  .navbar a {
+
+    font-size: 14px;
+
+  }
+
+  .footer {
+
+    font-size: 18px;
+
+  }
+
+  a#random {
+
+    order: 4;
+
+  }
+
+  a.start {
+
+    order: 5;
+
+  }
+
+}
+
+@media screen and (max-width: 550px) {
+
+  .center {
+
+    width: 95%;
+
+  }
+
 }
